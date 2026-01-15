@@ -1,4 +1,7 @@
 import * as THREE from "three";
+import { inject } from "@vercel/analytics";
+
+inject();
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
