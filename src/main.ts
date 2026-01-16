@@ -1,18 +1,13 @@
 import * as THREE from "three";
 import { inject } from "@vercel/analytics";
 
+import { setupSceneCamera, setupRenderer } from "./core";
+
 inject();
 
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(
-  75,
-  window.innerWidth / window.innerHeight,
-  0.1,
-  1000,
-);
+const { scene, camera } = setupSceneCamera();
 
-const renderer = new THREE.WebGLRenderer();
-renderer.setSize(window.innerWidth, window.innerHeight);
+const renderer = setupRenderer();
 document.body.appendChild(renderer.domElement);
 
 const geometry = new THREE.BoxGeometry(1, 1, 1);
